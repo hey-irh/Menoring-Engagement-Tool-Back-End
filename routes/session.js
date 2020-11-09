@@ -22,4 +22,8 @@ router.post("/", () => null);
  */
 router.patch("/", () => null);
 
+/**
+ * TODO: in app.js, require/import sessionRouter (the router that's been created in this file)
+ *      and then app.use("/sessions", sessionRouter)
+ */
 module.exports = router;
