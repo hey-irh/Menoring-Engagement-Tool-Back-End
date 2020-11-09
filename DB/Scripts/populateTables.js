@@ -13,7 +13,7 @@ const populatePersonTable = async () => {
 };
 
 const populateSessionTable = async () => {
-  for (const person of initialSessions) {
+  for (const session of initialSessions) {
     await query(
       `INSERT INTO session(
         timestamp,
@@ -24,12 +24,12 @@ const populateSessionTable = async () => {
         mentee_feedback
       ) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`,
       [
-        person.timestamp,
-        person.notes,
-        person.mentorId,
-        person.menteeId,
-        person.mentorFeedback,
-        person.menteeFeedback,
+        session.timestamp,
+        session.notes,
+        session.mentorId,
+        session.menteeId,
+        session.mentorFeedback,
+        session.menteeFeedback,
       ]
     );
   }
