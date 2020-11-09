@@ -8,7 +8,7 @@ const createPersonTable = async () => {
     `CREATE TABLE IF NOT EXISTS person (
       id SERIAL PRIMARY KEY,
       name VARCHAR(200) NOT NULL
-    )`
+    );`
   );
 };
 
@@ -22,7 +22,7 @@ const createSessionTable = async () => {
       mentee_id INTEGER REFERENCES person (id) ON DELETE CASCADE,
       mentor_feedback INTEGER CHECK (mentor_feedback BETWEEN 1 AND 5),
       mentee_feedback INTEGER CHECK (mentee_feedback BETWEEN 1 AND 5)
-    )`
+    );`
   );
 };
 
