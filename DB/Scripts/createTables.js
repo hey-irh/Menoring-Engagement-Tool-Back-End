@@ -20,8 +20,8 @@ const createSessionTable = async () => {
       notes text[] NOT NULL,
       mentor_id INTEGER REFERENCES person (id) ON DELETE CASCADE,
       mentee_id INTEGER REFERENCES person (id) ON DELETE CASCADE,
-      mentor_feedback INTEGER CHECK (mentor_feedback BETWEEN 1 AND 5),
-      mentee_feedback INTEGER CHECK (mentee_feedback BETWEEN 1 AND 5)
+      mentor_feedback INTEGER CHECK (mentor_feedback IS NULL OR mentor_feedback BETWEEN 1 AND 5),
+      mentee_feedback INTEGER CHECK (mentee_feedback IS NULL OR mentee_feedback BETWEEN 1 AND 5)
     );`
   );
 };
