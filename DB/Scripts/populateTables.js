@@ -41,6 +41,8 @@ const populateAllTables = async () => {
   console.log("Tables should be populated now.");
 };
 
+module.exports = { populateAllTables };
+
 if (require.main === module) {
   populateAllTables();
 }
