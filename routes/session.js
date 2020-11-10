@@ -5,6 +5,6 @@ const sessionController = require("../controller/session");
 
 router.get("/", sessionController.getAllSessions);
 router.post("/", sessionController.createSession);
-router.patch("/", sessionController.updateSessionNotes);
+router.patch("/:id", sessionController.updateSessionNotes);
 
 module.exports = router;
