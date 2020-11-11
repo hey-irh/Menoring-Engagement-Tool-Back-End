@@ -1,12 +1,8 @@
 const { query } = require("../index");
 
-const dropPersonTable = async () => {
-  return await query("DROP TABLE IF EXISTS person;");
-};
-
-const dropSessionTable = async () => {
-  return await query("DROP TABLE IF EXISTS session;");
-};
+const dropPersonTable = async () => await query("DROP TABLE IF EXISTS person;");
+const dropSessionTable = async () =>
+  await query("DROP TABLE IF EXISTS session;");
 
 const dropAllTables = async () => {
   await dropSessionTable(); // Drop this one first because it refers to the other table.
