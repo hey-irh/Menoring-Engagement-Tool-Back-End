@@ -15,15 +15,17 @@ const createSession = async (req, res, next) => {
 };
 
 // Front end will need to send notes as an array.
-const updateSessionNotes = async (req, res, next) => {
+const updateSession = async (req, res, next) => {
   res.json({
     success: true,
-    payload: await sessionModel.updateSessionNotes(req.params.id, req.body),
+    payload: await sessionModel.updateSession(req.params.id, req.body),
   });
 };
+
+// similar function for feedback
 
 module.exports = {
   getAllSessions,
   createSession,
-  updateSessionNotes,
+  updateSession,
 };

@@ -28,17 +28,33 @@ const createSession = async (newSession) => {
 };
 
 // Can only append a single note (for now).
-const updateSessionNotes = async (sessionId, notes) => {
+
+// const updateSessionNotes = async (sessionId, notes) => {
+
+//   const response = await query(
+//     `UPDATE session SET notes = $2
+//       WHERE id = $1 RETURNING *;`,
+//     [sessionId, notes]
+//   );
+//   return response.rows;
+// };
+
+const updateSession = async (sessionId, updates) => {
+
+  const {notes, menteeFeedback, mentorFeedback} = updates;
   const response = await query(
-    `UPDATE session SET notes = $2
-      WHERE id = $1 RETURNING *;`,
-    [sessionId, notes]
+    `UPDATE session
+    SET (notes, mentee_feedback, mentor_feedback) = ($2, COALESCE(mentee_feedback, $3), COALESCE(mentor_feedback, $4))
+    WHERE id = $1 RETURNING *`, 
+    [sessionId, notes, menteeFeedback, mentorFeedback]
   );
   return response.rows;
-};
+}
+
+//similar async function
 
 module.exports = {
   getAllSessions,
   createSession,
-  updateSessionNotes,
+  updateSession,
 };
