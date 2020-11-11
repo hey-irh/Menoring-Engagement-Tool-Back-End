@@ -5,9 +5,20 @@ const { initialPeople, initialSessions } = require("./seedData");
 const populatePersonTable = async () => {
   for (const person of initialPeople) {
     await query(
-      `INSERT INTO person(name)
-        VALUES ($1) RETURNING *;`,
-      [person.name]
+      `INSERT INTO person(
+        name,
+        short_intro,
+        long_intro,
+        languages,
+        interests
+      ) VALUES ($1, $2, $3, $4, $5) RETURNING *;`,
+      [
+        person.name,
+        person.shortIntro,
+        person.longIntro,
+        person.languages,
+        person.interests,
+      ]
     );
   }
 };

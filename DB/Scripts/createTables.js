@@ -7,7 +7,11 @@ const createPersonTable = async () => {
   return await query(
     `CREATE TABLE IF NOT EXISTS person (
       id SERIAL PRIMARY KEY,
-      name VARCHAR(200) NOT NULL
+      name VARCHAR(200) NOT NULL,
+      short_intro TEXT,
+      long_intro TEXT,
+      languages TEXT[],
+      interests TEXT
     );`
   );
 };
