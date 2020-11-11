@@ -1,7 +1,10 @@
 const { query } = require("../db/index");
 
 const getAllSessions = async () => {
-  const response = await query("SELECT * FROM session;");
+  const response = await query(
+    `SELECT * FROM session
+      ORDER BY timestamp;`
+  );
   return response.rows;
 };
 
