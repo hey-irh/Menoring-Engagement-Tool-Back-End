@@ -22,10 +22,18 @@ const updateSession = async (req, res, next) => {
   });
 };
 
+const deleteSession = async (req, res, next) => {
+  res.json({
+    success: true,
+    payload: await sessionModel.deleteSession(req.params.id),
+  });
+};
+
 // similar function for feedback
 
 module.exports = {
   getAllSessions,
   createSession,
   updateSession,
+  deleteSession,
 };

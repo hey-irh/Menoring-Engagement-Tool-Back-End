@@ -38,7 +38,7 @@ const updateSession = async (sessionId, updates) => {
       mentee_feedback,
       mentor_feedback
     ) = (
-      $2,
+      COALESCE($2, notes),
       COALESCE($3, mentee_feedback),
       COALESCE($4, mentor_feedback)
     )
@@ -48,8 +48,18 @@ const updateSession = async (sessionId, updates) => {
   return response.rows[0];
 };
 
+const deleteSession = async (sessionId) => {
+  const response = await query(
+    `DELETE FROM session
+    WHERE id = $1 RETURNING *;`,
+    [sessionId]
+  );
+  return response.rows[0];
+};
+
 module.exports = {
   getAllSessions,
   createSession,
   updateSession,
+  deleteSession,
 };
