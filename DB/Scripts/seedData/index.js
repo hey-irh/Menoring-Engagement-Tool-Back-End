@@ -43,8 +43,8 @@ const initialSessions = [
   {
     timestamp: new Date(2020, 11, 9, 15),
     notes: [
-      "Do you have any advice/guidance on for working in fours and having good team dynamics?",
-      "Absolutely, let's discuss in this week's session.",
+      "I'm really stressed over this project. Can we discuss AWS and DynamoDB?",
+      "Can do, let's go through it in this session.",
     ],
     mentorId: 1,
     menteeId: 2,
