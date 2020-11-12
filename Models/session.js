@@ -48,8 +48,18 @@ const updateSession = async (sessionId, updates) => {
   return response.rows[0];
 };
 
+const deleteSession = async (sessionId) => {
+  const response = await query(
+    `DELETE FROM session
+    WHERE id = $1 RETURNING *;`,
+    [sessionId]
+  );
+  return response.rows[0];
+};
+
 module.exports = {
   getAllSessions,
   createSession,
   updateSession,
+  deleteSession,
 };
