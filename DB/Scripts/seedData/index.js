@@ -40,6 +40,17 @@ const initialSessions = [
     mentorFeedback: 3,
     menteeFeedback: 4,
   },
+  {
+    timestamp: new Date(2020, 11, 9, 15),
+    notes: [
+      "Do you have any advice/guidance on for working in fours and having good team dynamics?",
+      "Absolutely, let's discuss in this week's session.",
+    ],
+    mentorId: 1,
+    menteeId: 2,
+    mentorFeedback: 3,
+    menteeFeedback: 4,
+  },
 ];
 
 module.exports = {
