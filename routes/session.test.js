@@ -56,15 +56,13 @@ describe("PATCH /sessions/:id", () => {
         "Would be good if we could discuss promises at the next session. Doing them in workshops at the moment and I don't really understand them well yet.",
         "We can discuss a few examples, no problem.",
       ],
-      menteeFeedback: null,
+      menteeFeedback: 3,
       mentorFeedback: 5,
     };
 
     const response = await request
       .patch(`/sessions/${sessionId}`)
       .send(updatedSession);
-
-    console.log(response.body.payload);
 
     expect(response.body.payload).toMatchObject({
       id: sessionId,
