@@ -1,4 +1,4 @@
-const { query } = require("../db/index");
+const { query } = require("../DB/index");
 
 const getAllSessions = async () => {
   const response = await query(
